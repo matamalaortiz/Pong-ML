@@ -58,7 +58,7 @@ function renderProductList(element, index, emojis) {
 }
 
 // SOCKET CONNECTION
-// socket = io.connect("https://am7673.itp.io:3000/"); // Listen for sockets
+// socket = io.connect("https://am7673.itp.io:/"); // Listen for sockets
 socket = io.connect(); // Listen for sockets
 
 

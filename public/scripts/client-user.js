@@ -8,8 +8,8 @@ let imageTrained = document.getElementById('imgTrained');
 let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "🤘", "🖕", "👉", "👌", "👍", "👋", "🖖"]
 
 
-// socket = io.connect("https://am7673.itp.io:3000/"); // Listen for sockets
-socket = io.connect(); // Listen for sockets
+socket = io.connect("https://am7673.itp.io/"); // Listen for sockets
+// socket = io.connect(); // Listen for sockets
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -20,7 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function positionServer(data) {
 
-    let emj = document.getElementById("emj");
+    // let emj = document.getElementById("emj");
+    for (var i = 0; i < 100; i++){
+      var emj = document.createElement('p');
+      emj.setAttribute('id', data);
+      emj.innerHTML = data;
+      document.body.appendChild(emj);
+    }
 
     switch(data) {
       case "🙂":
