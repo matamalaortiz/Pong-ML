@@ -11,8 +11,6 @@ let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "🤘", "🖕", "👉"
 // socket = io.connect("https://am7673.itp.io/"); // Listen for sockets
 socket = io.connect(); // Listen for sockets
 
-
-
 document.addEventListener('DOMContentLoaded', function() {
 
   // socket.on('clients_from_server', clientsConnected);
@@ -21,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function positionServer(data) {
-    let emj = document.getElementById('emj');
+    let emj = document.getElementById('emj')
 
     if (data == "🙂") {
       // imageTrained.src = "./images/peace.jpg"
