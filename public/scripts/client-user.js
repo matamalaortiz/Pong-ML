@@ -8,8 +8,8 @@ let imageTrained = document.getElementById('imgTrained');
 let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "🤘", "🖕", "👉", "👌", "👍", "👋", "🖖"]
 
 
-socket = io.connect("https://am7673.itp.io:3000/"); // Listen for sockets
-// socket = io.connect(); // Listen for sockets
+// socket = io.connect("https://am7673.itp.io:3000/"); // Listen for sockets
+socket = io.connect(); // Listen for sockets
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -19,10 +19,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function positionServer(data) {
-    if (data == "🙂") {
-      console.log("Position from Server:" + " " + data);
-      // imageTrained.src = "./images/peace.jpg"
-    }
+
+    let emj = document.getElementById("emj");
+
+    switch(data) {
+      case "🙂":
+        emj.innerHTML = data;
+        break;
+      case "😎":
+        emj.innerHTML = data;
+        break;
+      case "😛":
+        emj.innerHTML = data;
+        break
+      case "✌":
+        emj.innerHTML = data;
+        break
+      case "✋":
+        emj.innerHTML = data;
+        break
+      case "☝":
+        emj.innerHTML = data;
+        break
+      case "🤘":
+        emj.innerHTML = data;
+        break
+      case "🖕":
+        emj.innerHTML = data;
+        break
+      case "👌":
+        emj.innerHTML = data;
+        break
+      case "👍":
+        emj.innerHTML = data;
+        break
+      case "👋":
+        emj.innerHTML = data;
+        break
+      case "🖖":
+        emj.innerHTML = data;
+          break
+      default:
+      console.log('default');
+  }
 
   }
 

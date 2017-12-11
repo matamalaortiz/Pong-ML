@@ -4,7 +4,9 @@ let socket;
 let startPredicting = false;
 let times = 0;
 let keyPressed = 0;
-let urls = ["https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach1.mp4?alt=media&token=ac853088-a89e-43c6-8dda-ccc72d0f8156", "https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach2.mp4?alt=media&token=da8f633e-d0bf-4e8c-bcac-9d788a3d07ea", "https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach1.mp4?alt=media&token=ac853088-a89e-43c6-8dda-ccc72d0f8156"];
+// let urls = ["https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach1.mp4?alt=media&token=ac853088-a89e-43c6-8dda-ccc72d0f8156", "https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach2.mp4?alt=media&token=da8f633e-d0bf-4e8c-bcac-9d788a3d07ea", "https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach1.mp4?alt=media&token=ac853088-a89e-43c6-8dda-ccc72d0f8156"];
+let urls = ["./videos/teach1.mp4", "./videos/teach2.mp4"];
+
 let emojis = ["🙂", "😎", "😛", "✌", "✋", "☝", "🤘", "🖕", "👉", "👌", "👍", "👋", "🖖"]
 var trainings = urls.length - 1;
 let modelSign = document.getElementById('model');
