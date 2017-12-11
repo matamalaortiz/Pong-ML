@@ -56,6 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
       emj.innerHTML = "";
     }
 
-  });
-  
+  };
+
 });
