@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     for (var i = 0; i < 50; i++){
       let emj = document.createElement('p');
-      document.body.appendChild(p);
+      document.body.appendChild(emj);
     }
 
     if (data == "🙂") {
