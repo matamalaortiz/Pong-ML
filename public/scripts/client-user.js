@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function positionServer(data) {
+
+    for (var i = 0; i < 50; i++){
+      let emj = document.createElement('p');
+      document.body.appendChild(p);
+    }
+
     if (data == "🙂") {
       // imageTrained.src = "./images/peace.jpg"
     } else if ( data == "😎" ){
