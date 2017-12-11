@@ -28,48 +28,34 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.appendChild(emj);
     }
 
-    switch(data) {
-      case "🙂":
-        emj.innerHTML = data;
-        break;
-      case "😎":
-        emj.innerHTML = data;
-        break;
-      case "😛":
-        emj.innerHTML = data;
-        break
-      case "✌":
-        emj.innerHTML = data;
-        break
-      case "✋":
-        emj.innerHTML = data;
-        break
-      case "☝":
-        emj.innerHTML = data;
-        break
-      case "🤘":
-        emj.innerHTML = data;
-        break
-      case "🖕":
-        emj.innerHTML = data;
-        break
-      case "👌":
-        emj.innerHTML = data;
-        break
-      case "👍":
-        emj.innerHTML = data;
-        break
-      case "👋":
-        emj.innerHTML = data;
-        break
-      case "🖖":
-        emj.innerHTML = data;
-          break
-      default:
-      console.log('default');
-  }
+    if ( data == "🙂" ){
+      emj.innerHTML = data;
+    } else if ( data == "😎" ){
+      emj.innerHTML = data;
+    } else if ( data == "😛" ){
+      emj.innerHTML = data;
+    } else if ( data == "✌" ){
+      emj.innerHTML = data;
+    } else if ( data == "✋" ){
+      emj.innerHTML = data;
+    } else if ( data == "☝" ){
+      emj.innerHTML = data;
+    } else if ( data == "🤘" ){
+      emj.innerHTML = data;
+    } else if ( data == "🖕" ){
+      emj.innerHTML = data;
+    } else if ( data == "👌" ){
+      emj.innerHTML = data;
+    } else if ( data == "👍" ){
+      emj.innerHTML = data;
+    } else if ( data == "👋" ){
+      emj.innerHTML = data;
+    } else if ( data == "🖖" ){
+      emj.innerHTML = data;
+    } else {
+      emj.innerHTML = "";
+    }
 
-  }
-
-
+  });
+  
 });
