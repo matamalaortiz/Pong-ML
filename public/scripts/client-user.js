@@ -20,29 +20,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function positionServer(data) {
     if (data == "🙂") {
-      console.log("Position from Server:" + " " + data);
       // imageTrained.src = "./images/peace.jpg"
     } else if ( data == "😎" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "😛" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "✌" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "✋" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "☝" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "🤘" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "🖕" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "👌" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "👍" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "👋" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else if ( data == "🖖" ){
+      console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
     } else {
       emj.innerHTML = "";
