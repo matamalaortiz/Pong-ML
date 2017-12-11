@@ -125,6 +125,11 @@ li {
   text-transform: uppercase;
 }
 
+li:hover {
+  cursor: cell;
+}
+
+
 span#emoji {
   font-size: 30px;
   float: left;
@@ -172,6 +177,17 @@ p#emojiStatus {
   background-color: #e8c729;
 }
 
+*::selection {
+    background:transparent;
+}
+
+*::-moz-selection {
+    background:transparent;
+}
+
+*::-webkit-selection {
+    background:transparent;
+}
 
 @keyframes fadeIN {
   from {opacity: 0;}

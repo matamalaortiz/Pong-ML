@@ -11653,10 +11653,10 @@ var sr=require('./seedrandom');sr.alea=alea;sr.xor128=xor128;sr.xorwow=xorwow;sr
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -12195,7 +12195,7 @@ exports.NeuralNetwork = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /*
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Simple Artificial Neural Network
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Based on https://github.com/shiffman/Neural-Network-p5 by Daniel Shiffman 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     Based on https://github.com/shiffman/Neural-Network-p5 by Daniel Shiffman
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      Based on "Make Your Own Neural Network" by Tariq Rashid
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      https://github.com/makeyourownneuralnetwork/
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
@@ -12255,7 +12255,7 @@ var NeuralNetwork = function () {
       // hidden layer error is the output_errors, split by weights, recombined at hidden node
       var hidden_errors = _index.math.matMul(_index.math.transpose(this.who), output_errors);
       // Start Backpropagation
-      // Update the weights for the links between the hidden and output layers  
+      // Update the weights for the links between the hidden and output layers
       this.who = _index.math.add(this.who, _index.math.multiply(this.learning_rate, _index.math.matMul(_index.math.multiply(_index.math.multiply(output_errors, final_outputs), _index.math.subtract(_deeplearn.Scalar.new(1), final_outputs)), _index.math.transpose(hidden_outputs))));
 
       // Update the weights for the links between the input and the hidden layer
@@ -12315,7 +12315,7 @@ var randomInt = function randomInt() {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-// Random Number following a normal dist. 
+// Random Number following a normal dist.
 // Taken from https://github.com/processing/p5.js/blob/master/src/math/random.js#L168
 var randomGaussian = function randomGaussian() {
   var mean = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
@@ -22843,10 +22843,10 @@ module.exports = sr;
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
