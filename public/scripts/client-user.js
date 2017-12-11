@@ -11,11 +11,8 @@ let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "🤘", "🖕", "👉"
 // socket = io.connect("https://am7673.itp.io/"); // Listen for sockets
 socket = io.connect(); // Listen for sockets
 
-for (var i = 0; i < 50; i++){
-  let emj = document.createElement('p');
-  emj.setAttribute("id","emj")
-  document.body.appendChild(emj);
-}
+let emj = document.createElement('p');
+
 
 document.addEventListener('DOMContentLoaded', function() {
 
