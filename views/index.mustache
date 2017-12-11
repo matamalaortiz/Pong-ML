@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <script src="scripts/socket-io.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
+		<script src="scripts/capture.js"></script>
+    <script src="scripts/p5ml.js"></script>
+
+	</head>
+	<body>
+		<div id="model"></div>
+		<h1 id="loading">TRAINING</h1>
+
+		<div class="sidebar">
+			<p id="title"> EMOJI CONTROLLER • DEEPLEARN.JS </p> 
+
+			<div id="videoContainer">
+				<p id="videoText">Place over Emoji to see how was trained</p>
+				<video id="videoShowRef" src="" muted="true" autoplay crossorigin="anonymous" ></video>
+			</div>
+			<div id="listing">
+				<div id="renderList"></div>
+			</div>
+			<div id="log"></div>
+		</div>
+
+		<div id="videoLive">
+			<video id="video" muted="true" autoplay crossorigin="anonymous" ></video>
+		</div>
+
+    <div class="k" id="video-container">
+      <video id="my-video" muted="true" autoplay crossorigin="anonymous" width="227" height="227" ></video>
+    </div>
+
+    <script src="/scripts/client.js"></script>
+
+	</body>
+</html>

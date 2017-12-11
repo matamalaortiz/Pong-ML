@@ -1,0 +1,189 @@
+body {
+  background-color: #f6dd95;
+  background-size: cover;
+  position: fixed;
+  margin: 0;
+  height: 100%;
+  font-family: Lars;
+  letter-spacing: 0.2px;
+}
+
+#loading {
+  font-size: 100px;
+  font-size: 200px;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  color: white;
+  background-color: orange;
+  padding: 10%;
+  padding-left: 35%;
+  padding-top: 20%;
+  margin-top: 0%;
+  animation: fadeINTERVAL 1s infinite;
+}
+
+#title {
+  color: white;
+  background: #231f21;
+  margin: 0;
+  padding: 10px;
+  padding-left: 30px;
+  text-align: left;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.sidebar {
+  margin: 0;
+  background: white;
+  box-shadow: 5px 1px 4px 0px #17171794;
+  box-shadow: antiquewhite;
+  width: 17%;
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
+  z-index: 3;
+}
+
+#videoContainer{
+  background-color: #f9d526;
+  height: 205px;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
+div#center {
+  text-align: center;
+  font-size: 25px;
+  font-family: apercu;
+  color: white;
+}
+
+#my-video {
+  display: none;
+}
+
+#video {
+  width: 126vw;
+  height: 114vh;
+  display: block;
+  margin-left: 0vh;
+  margin-top: 0%;
+  position: initial;
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+}
+
+#videoLive {
+  height: 100%;
+  width: 100%;
+  background-color: #f9d528;
+  background-image: url(./circles.png);
+  background-size: cover;
+}
+
+#videoShowRef {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1);
+  mix-blend-mode: multiply;
+  opacity: 0;
+}
+
+#videoText {
+  position: absolute;
+  font-size: 10px;
+  color: #292222;
+  padding: 85px;
+  opacity: 1;
+}
+
+#model {
+  background: white;
+  padding: 15px;
+  margin: 1% 0% 0 89%;
+  position: absolute;
+  display: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  font-size: 12px;
+  margin-top: 1px;
+  border-bottom: 1px solid #e4c466;
+  color: black;
+  padding-left: 20px;
+  padding: 19px;
+  background-color: #f7f1e3;
+  text-transform: uppercase;
+}
+
+span#emoji {
+  font-size: 30px;
+  float: left;
+  margin-right: 4%;
+}
+
+p#emojiStatus {
+  float: inherit;
+  margin: 0;
+  padding: 12px;
+}
+
+#log {
+  width: 100%;
+  height: 80px;
+  background-color: #f9d526;
+  position: sticky;
+  bottom: 0px;
+  text-align: center;
+  font-size: 45px;
+  padding-top: 25px;
+}
+
+
+#listing {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 63%;
+}
+
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+#listing::-webkit-scrollbar {
+    width: 12px;
+}
+
+#listing::-webkit-scrollbar {
+  background-color: #efe5d1;
+}
+
+#listing::-webkit-scrollbar-thumb {
+  background-color: #e8c729;
+}
+
+
+@keyframes fadeIN {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeOUT {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+@keyframes fadeINTERVAL {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}

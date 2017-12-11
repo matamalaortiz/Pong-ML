@@ -1,0 +1,11 @@
+body {
+  background-color: white;
+  border: 20px solid white;
+  margin: 0;
+  height: 95vh;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
