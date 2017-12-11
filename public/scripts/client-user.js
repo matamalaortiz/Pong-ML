@@ -8,8 +8,8 @@ let imageTrained = document.getElementById('imgTrained');
 let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "🤘", "🖕", "👉", "👌", "👍", "👋", "🖖"]
 
 
-socket = io.connect("https://am7673.itp.io/"); // Listen for sockets
-// socket = io.connect(); // Listen for sockets
+// socket = io.connect("https://am7673.itp.io/"); // Listen for sockets
+socket = io.connect(); // Listen for sockets
 
 document.addEventListener('DOMContentLoaded', function() {
 
@@ -19,17 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   function positionServer(data) {
-
-    // let emj = document.getElementById("emj");
-    for (var i = 0; i < 100; i++){
-      var emj = document.createElement('p');
-      emj.setAttribute('id', data);
-      emj.innerHTML = data;
-      document.body.appendChild(emj);
-    }
-
-    if ( data == "🙂" ){
-      emj.innerHTML = data;
+    if (data == "🙂") {
+      console.log("Position from Server:" + " " + data);
+      // imageTrained.src = "./images/peace.jpg"
     } else if ( data == "😎" ){
       emj.innerHTML = data;
     } else if ( data == "😛" ){
@@ -56,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
       emj.innerHTML = "";
     }
 
-  };
+  }
+
 
 });
