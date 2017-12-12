@@ -27,45 +27,47 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if ( data == "😎" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#fff9ae";
+      b.style.backgroundColor = "#fff9ae";
     } else if ( data == "😛" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#f8ed62";
+      b.style.backgroundColor = "#f8ed62";
     } else if ( data == "✌" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#e9d700";
+      b.style.backgroundColor = "#e9d700";
     } else if ( data == "✋" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#dab600";
+      b.style.backgroundColor = "#dab600";
     } else if ( data == "☝" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#a98600";
+      b.style.backgroundColor = "#a98600";
     } else if ( data == "🤘" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#fff9ae";
+      b.style.backgroundColor = "#fff9ae";
     } else if ( data == "🖕" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.backgroundColor = "#e9d700";
     } else if ( data == "👌" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.backgroundColor = "#a98600";
     } else if ( data == "👍" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#fff9ae";
+      b.style.backgroundColorcolor = "#fff9ae";
     } else if ( data == "👋" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#e9d700";
+      b.style.backgroundColor = "#e9d700";
     } else if ( data == "🖖" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
-      b.style.color = "#e9d700";
+      b.style.backgroundColor = "#e9d700";
     } else {
       emj.innerHTML = "";
     }
