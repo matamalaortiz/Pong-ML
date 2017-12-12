@@ -9,16 +9,15 @@ body {
 }
 
 #loading {
-  font-size: 100px;
-  font-size: 200px;
+  font-size: 90px;
   position: fixed;
   height: 100%;
   width: 100%;
   color: white;
   background-color: orange;
   padding: 10%;
-  padding-left: 35%;
-  padding-top: 20%;
+  padding-left: 40%;
+  padding-top: 25%;
   margin-top: 0%;
   animation: fadeINTERVAL 1s infinite;
 }
@@ -28,7 +27,7 @@ body {
   background: #231f21;
   margin: 0;
   padding: 10px;
-  padding-left: 30px;
+  padding-left: 9px;
   text-align: left;
   font-size: 10px;
   letter-spacing: 1px;
@@ -96,7 +95,8 @@ div#center {
   position: absolute;
   font-size: 10px;
   color: #292222;
-  padding: 85px;
+  padding-top: 25%;
+  padding-left: 5%;
   opacity: 1;
 }
 
@@ -174,8 +174,31 @@ p#emojiStatus {
 }
 
 #listing::-webkit-scrollbar-thumb {
-  background-color: #e8c729;
+  background-color: #3a330d;
 }
+
+@media screen and (max-width: 990px) {
+  span#emoji {
+      font-size: 22px;
+  }
+  li {
+    font-size: 10px;
+  }
+  #title {
+    font-size: 7px;
+  }
+
+}
+
+@media screen and (min-width: 1580px) {
+  #loading {
+    font-size: 200px;
+    padding-left: 35%;
+    padding-top: 20%;
+  }
+
+}
+
 
 *::selection {
     background:transparent;

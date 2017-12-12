@@ -6,7 +6,11 @@ let times = 0;
 let y = 0;
 let imageTrained = document.getElementById('imgTrained');
 let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "👌", "🖕", "👉", "🤘", "👍", "👋", "🖖"]
-
+let ry = 245;
+let gy = 224;
+let by = 2;
+let black = 0;
+let changeColor = false;
 
 var gameStart = false;
 var paddleL = {
@@ -69,6 +73,25 @@ function positionServer(data){
     rD = 0;
   }
 
+  if (data == "😎") {
+    let credits = document.getElementById('credits');
+    let icons = document.getElementById('icons');
+
+    ry = 0;
+    gy = 0;
+    by = 0;
+    changeColor = true;
+    credits.style.display = "block";
+    icons.style.display = "none";
+  } else {
+    ry = 245;
+    gy = 224;
+    by = 2;
+    changeColor = false;
+    icons.style.display = "block";
+    credits.style.display = "none"
+  }
+
   if (data == "😛") {
     location.reload();
   }
@@ -96,8 +119,8 @@ function draw() {
   gameStart === true;
   //}
 
-    background(245, 224, 24);
-    noStroke();
+  background(ry,gy,by);
+  noStroke();
 
   createLeftPaddle();
   createRightPaddle();
@@ -111,7 +134,11 @@ function draw() {
 }
   function createBall() {
     //Create ball
-    fill(0, 0, 0);
+    if (changeColor == false) {
+      fill(black, black, black);
+    } else {
+      fill(245, 224, 2);
+    }
     ellipse(ball.x, ball.y, ball.diam, ball.diam);
 
     ball.x = ball.x + speedX;
@@ -122,15 +149,19 @@ function draw() {
 
   function createLeftPaddle() {
     //Create the left paddle
-    fill(0, 0, 0);
+    if (changeColor == false) {
+      fill(black, black, black);
+    } else {
+      fill(245, 224, 2);
+    }
     rect(paddleL.x, paddleL.y, paddleL.w, paddleL.h);
     //Control the left paddle
-    if (lU === 1) {
+    if (lD === 1) {
       if (paddleL.y + paddleL.h < height - 5) {
         paddleL.y = paddleL.y + paddleSpeed;
       }
     }
-    if (lD === 1) {
+    if (lU === 1) {
       if (paddleL.y > 5) {
         paddleL.y = paddleL.y - paddleSpeed;
       }
@@ -139,16 +170,20 @@ function draw() {
 
   function createRightPaddle() {
     //Create the right paddle
-    fill(0, 0, 0);
+    if (changeColor == false) {
+      fill(black, black, black);
+    } else {
+      fill(245, 224, 2);
+    }
     rect(paddleR.x, paddleR.y, paddleR.w, paddleR.h);
     //Control the right paddle
 
-    if (rU === 1) { //move paddle down
+    if (rD === 1) { //move paddle down
       if (paddleR.y + paddleR.h < height - 5) {
         paddleR.y = paddleR.y + paddleSpeed;
       }
     }
-    if (rD === 1) { //move paddle up
+    if (rU === 1) { //move paddle up
       if (paddleR.y > 5) {
         paddleR.y = paddleR.y - paddleSpeed;
       }
