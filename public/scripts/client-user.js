@@ -20,27 +20,34 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function positionServer(data) {
     let emj = document.getElementById('emj')
+    let b = document.body;
 
     if (data == "🙂") {
       // imageTrained.src = "./images/peace.jpg"
     } else if ( data == "😎" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#fff9ae";
     } else if ( data == "😛" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#f8ed62";
     } else if ( data == "✌" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#e9d700";
     } else if ( data == "✋" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#dab600";
     } else if ( data == "☝" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#a98600";
     } else if ( data == "🤘" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#fff9ae";
     } else if ( data == "🖕" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
@@ -50,12 +57,15 @@ document.addEventListener('DOMContentLoaded', function() {
     } else if ( data == "👍" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#fff9ae";
     } else if ( data == "👋" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#e9d700";
     } else if ( data == "🖖" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
+      b.style.color = "#e9d700";
     } else {
       emj.innerHTML = "";
     }
