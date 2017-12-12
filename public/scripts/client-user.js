@@ -5,7 +5,7 @@ let startPredicting = false;
 let times = 0;
 let y = 0;
 let imageTrained = document.getElementById('imgTrained');
-let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "👌", "🖕", "👉", "🤘", "👍", "👋", "🖖"]
+let emojis =["🙂", "😎", "😛", "☝", "✋", "✌", "✊", "🖕", "👉", "🤘", "👍", "👋", "🖖"];
 
 
 // socket = io.connect("https://am7673.itp.io/"); // Listen for sockets
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
       b.style.backgroundColor = "#e9d700";
-    } else if ( data == "👌" ){
+    } else if ( data == "✊" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;
       b.style.backgroundColor = "#a98600";

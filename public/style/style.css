@@ -73,6 +73,10 @@ div#center {
   position: initial;
   filter: grayscale(1);
   mix-blend-mode: multiply;
+  mix-blend-mode: multiply;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 
 #videoLive {

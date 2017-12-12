@@ -5,7 +5,7 @@ let startPredicting = false;
 let times = 0;
 let y = 0;
 let imageTrained = document.getElementById('imgTrained');
-let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "👌", "🖕", "👉", "🤘", "👍", "👋", "🖖"]
+let emojis =["🙂", "😎", "😛", "☝", "✋", "✌", "✊", "🖕", "👉", "🤘", "👍", "👋", "🖖"];
 let ry = 245;
 let gy = 224;
 let by = 2;
@@ -49,7 +49,7 @@ socket.on('position_from_server', positionServer);
 
 function positionServer(data){
   // console.log(data);
-  if (data == "✌") {
+  if (data == "☝") {
     lU = 1;
   } else {
     lU = 0;
@@ -61,13 +61,13 @@ function positionServer(data){
     lD = 0;
   }
 
-  if (data == "☝") {
+  if (data == "✌") {
     rU = 1;
   } else {
     rU = 0;
   }
 
-  if (data == "👌") {
+  if (data == "✊") {
     rD = 1;
   } else {
     rD = 0;

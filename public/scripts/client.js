@@ -9,7 +9,7 @@ let urls = ["./videos/teach1.mp4", "./videos/teach2.mp4"];
 // let urls = [];
 
 
-let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "👌", "🖕", "👉", "🤘", "👍", "👋", "🖖"]
+let emojis =["🙂", "😎", "😛", "☝", "✋", "✌", "✊", "🖕", "👉", "🤘", "👍", "👋", "🖖"];
 var trainings = urls.length - 1;
 let modelSign = document.getElementById('model');
 let logText = document.getElementById('log');
