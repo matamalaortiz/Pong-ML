@@ -5,7 +5,7 @@ let startPredicting = false;
 let times = 0;
 let y = 0;
 let imageTrained = document.getElementById('imgTrained');
-let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "🤘", "🖕", "👉", "👌", "👍", "👋", "🖖"]
+let emojis =["🙂", "😎", "😛", "✌", "✋", "☝", "👌", "🖕", "👉", "🤘", "👍", "👋", "🖖"]
 
 
 // socket = io.connect("https://am7673.itp.io/"); // Listen for sockets

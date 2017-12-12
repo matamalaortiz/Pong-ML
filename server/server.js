@@ -13,15 +13,15 @@ Alejandro Matamala
 // DEPENDENCIES
 
 const fs = require('fs');
-// const credentials = {
-//   key: fs.readFileSync('./private/localhost-key.pem'),
-//   cert: fs.readFileSync('./private/localhost.pem')
-// };
-
 const credentials = {
-  key: fs.readFileSync('./private/my-key.pem'),
-  cert: fs.readFileSync('./private/my-cert.pem')
+  key: fs.readFileSync('./private/localhost-key.pem'),
+  cert: fs.readFileSync('./private/localhost.pem')
 };
+
+// const credentials = {
+//   key: fs.readFileSync('./private/my-key.pem'),
+//   cert: fs.readFileSync('./private/my-cert.pem')
+// };
 
 const express = require('express');
 const app = express();
@@ -34,8 +34,8 @@ const  mustacheExpress = require('mustache-express');
 
 
 const  bodyParser = require('body-parser');
-// const  PORT = process.env.PORT || 3000;
-const  PORT = process.env.PORT || 443;
+const  PORT = process.env.PORT || 3000;
+// const  PORT = process.env.PORT || 443;
 
 
 // MIDDLEWARE
@@ -57,6 +57,10 @@ app.get('/', function(req, res) {
 
 app.get('/client', function(req, res) {
   res.render("client.mustache")
+});
+
+app.get('/pong', function(req, res) {
+  res.render("pong.mustache")
 });
 
 io.sockets.on('connection',
