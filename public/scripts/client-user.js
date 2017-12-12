@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     let b = document.body;
 
     if (data == "🙂") {
-      // imageTrained.src = "./images/peace.jpg"
+      console.log("Position from Server:" + " " + data);
+      emj.innerHTML = data;
+      b.style.backgroundColor = "#f8ed62";
     } else if ( data == "😎" ){
       console.log("Position from Server:" + " " + data);
       emj.innerHTML = data;

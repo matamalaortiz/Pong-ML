@@ -142,7 +142,7 @@ function loopURls(){
 
                 console.log('Position', emoji );
                 })
-              }, 250);
+              }, 550);
             }
           }
         }
