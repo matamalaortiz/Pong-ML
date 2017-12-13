@@ -5,6 +5,7 @@ let startPredicting = false;
 let times = 0;
 let y = 0;
 let imageTrained = document.getElementById('imgTrained');
+let credits = document.getElementById('credits');
 let emojis =["🙂", "😎", "😛", "☝", "✋", "✌", "✊", "🖕", "👉", "🤘", "👍", "👋", "🖖"];
 let ry = 245;
 let gy = 224;
@@ -45,30 +46,42 @@ let rD = 0;
 
 socket = io.connect(); // Listen for sockets
 
+
 socket.on('position_from_server', positionServer);
 
 function positionServer(data){
+  credits.innerHTML = "Made by @matamalaortiz for the Live Web class at ITP, NYU. Using P5ML";
+  let emjIcon = document.getElementById("emjIcon");
+
+  if (data == "🙂") {
+    emjIcon.innerHTML = data;
+  }
+
   // console.log(data);
   if (data == "☝") {
     lU = 1;
+    emjIcon.innerHTML = data;
   } else {
     lU = 0;
   }
 
   if (data == "✋") {
     lD = 1;
+    emjIcon.innerHTML = data;
   } else {
     lD = 0;
   }
 
   if (data == "✌") {
     rU = 1;
+    emjIcon.innerHTML = data;
   } else {
     rU = 0;
   }
 
   if (data == "✊") {
     rD = 1;
+    emjIcon.innerHTML = data;
   } else {
     rD = 0;
   }
@@ -76,6 +89,7 @@ function positionServer(data){
   if (data == "😎") {
     let credits = document.getElementById('credits');
     let icons = document.getElementById('icons');
+    emjIcon.innerHTML = data;
 
     ry = 0;
     gy = 0;

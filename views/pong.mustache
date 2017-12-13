@@ -2,14 +2,13 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Pong Deep</title>
+    <title>Pong P5ML</title>
 		<script src="scripts/socket-io.js"></script>
     <script src="scripts/p5.js" type="text/javascript"></script>
     <script src="scripts/p5.dom.js" type="text/javascript"></script>
 		<title>PONG DEEPLEARN 👌</title>
-
-
-		<h1 id="credits">Made by @matamalaortiz for the Live Web class at ITP, NYU.</h1>
+    <p id='emjIcon'></p>
+		<h1 id="credits"> </h1>
 		<p id="icons"> ↑ ☝ • ↓ ✋ &nbsp; <span id="grey"> | </span> &nbsp; 🙂 • 😎 • 😛  &nbsp; <span id="grey"> | </span> &nbsp; ✌ ↑ • ✊ ↓ </p>
 		<script src="scripts/client-pong.js"></script>
 
@@ -23,23 +22,31 @@
 		#credits {
 	    position: absolute;
 	    font-family: lars;
-	    margin: 34%;
+	    top: 40vh;
 	    font-size: 20px;
 	    color: #f5e002;
 			text-align: center;
+      left: 23%;
+      width: 60vw;
 			display: none;
 		}
 		p#icons {
 	    position: absolute;
 	    font-family: apercu;
 	    color: #212323;
-	    margin-left: 25vw;
-	    font-size: 25px;
+	    margin-left: 30vw;
+	    font-size: 20px;
 	    margin-top: 45vh;
 		}
 		span#grey{
 			color: white;
 		}
+
+    p#emjIcon {
+      position: absolute;
+      font-size: 40px;
+      left: 50%;
+    }
 
 </style>
   </head>
