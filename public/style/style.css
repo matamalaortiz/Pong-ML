@@ -124,15 +124,31 @@ li {
   border-bottom: 1px solid #e4c466;
   color: black;
   padding-left: 20px;
-  padding: 19px;
+  padding: 28px;
   background-color: #f7f1e3;
   text-transform: uppercase;
 }
 
 li:hover {
   cursor: cell;
+  background-color: #e6e0d3;
+
 }
 
+canvas {
+  vertical-align: top;
+  width: 21.4vw !important;
+  height: 205px !important;
+}
+
+canvas#defaultCanvas {
+  position: absolute;
+  top: 3.45vh;
+  z-index: 10;
+  left: 0;
+  /*box-shadow: 5px 1px 4px 0px #17171794;
+  box-shadow: antiquewhite;*/
+}
 
 span#emoji {
   font-size: 30px;
@@ -162,6 +178,7 @@ p#emojiStatus {
   overflow-y: scroll;
   overflow-x: hidden;
   height: 63%;
+  border-top: 1px solid #e4c466;
 }
 
 
@@ -178,7 +195,7 @@ p#emojiStatus {
 }
 
 #listing::-webkit-scrollbar-thumb {
-  background-color: #3a330d;
+  /*background-color: #3a330d;*/
 }
 
 @media screen and (max-width: 990px) {

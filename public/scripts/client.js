@@ -4,14 +4,9 @@ let socket;
 let startPredicting = false;
 let times = 0;
 let keyPressed = 0;
-// let urls = ["https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach1.mp4?alt=media&token=ac853088-a89e-43c6-8dda-ccc72d0f8156", "https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach2.mp4?alt=media&token=da8f633e-d0bf-4e8c-bcac-9d788a3d07ea", "https://firebasestorage.googleapis.com/v0/b/neat-vista-141916.appspot.com/o/teach1.mp4?alt=media&token=ac853088-a89e-43c6-8dda-ccc72d0f8156"];
-let urls = ["./videos/teach3.mp4", "./videos/teach4.mp4"];
-// let urls = [];
 
 
-let emojis =["🙂", "😎", "😛", "☝", "✋", "✌", "✊", "🖕", "👉", "🤘", "👍", "👋", "🖖"];
-var trainings = urls.length - 1;
-let modelSign = document.getElementById('model');
+let emojis =["🙂", "😛", "☝", "✋", "✌", "✊"];
 let logText = document.getElementById('log');
 let video = document.getElementById('my-video');
 let videoText = document.getElementById('videoText');
@@ -19,138 +14,57 @@ let videoShow = document.getElementById('video');
 let renderList =   document.getElementById('renderList');
 let loading = document.getElementById('loading');
 
+let ry = 251;
+let gy = 213;
+let by = 28;
+let black = 0;
+let changeColor = false;
+let reset = false;
 
 
-// Create and Play Videos Pre-Trainned
-let videoTeach = document.createElement("video");
-videoTeach.setAttribute('crossorigin', 'anonymous');
-videoTeach.setAttribute("width", "227");
-videoTeach.setAttribute("height", "227");
-videoTeach.setAttribute("loop", "loop");
-videoTeach.setAttribute("id", "tranning");
-videoTeach.setAttribute("muted", "true");
-videoTeach.setAttribute("autoplay", "autoplay");
-document.body.appendChild(videoTeach);
+var gameStart = false;
+var paddleL = {
+  x: 40,
+  y: 400,
+  w: 25,
+  h: 120,
+};
+var paddleR = {
+  x: 740,
+  y: 100,
+  w: 25,
+  h: 120,
+};
+var ball = {
+  x: 50,
+  y: 20,
+  diam: 22,
+  speedX: 5,
+  speedY: 5,
+};
+var speedX = 4;
+var speedY = 4;
+var paddleSpeed = 8;
 
-// Create List of Emojis in side bar
-var ul = document.createElement('ul');
-ul.setAttribute('id','proList');
 
-renderList.appendChild(ul);
-emojis.forEach(renderProductList);
+let lU = 0;
+let lD = 0;
+let rU = 0;
+let rD = 0;
 
-function renderProductList(element, index, emojis) {
-  // console.log(element, index);
-  var li = document.createElement('li');
-  li.setAttribute('id', element);
-  li.setAttribute("onmouseover", "addVideo(this," + index + ")")
-  li.setAttribute("onmouseleave", "removeVideo(this," + index + ")")
-  // li.innerHTML = "• Not trainned yet"
-  ul.appendChild(li);
-  // document.createTextNode(element);
-  var span = document.createElement('span');
-  span.setAttribute('id', "emoji");
-  span.innerHTML = element;
-  li.appendChild(span);
-  var p = document.createElement('p');
-  p.setAttribute('id', "emojiStatus");
-  p.innerHTML = " ↝  Not trained yet";
-  li.appendChild(p);
 
-}
+logText.innerHTML = "🙃";
 
-// SOCKET CONNECTION
-// socket = io.connect("https://am7673.itp.io:/"); // Listen for sockets
-socket = io.connect(); // Listen for sockets
 
 
 document.addEventListener('DOMContentLoaded', function() {
 
-// RECEIVE DATA FROM SERVER
-  socket.on('clients_from_server', clientsConnected);
-  socket.on('clients_from_server_disconnected', clientsDisconnected);
 
 // LOAD MODEL
 let knn = new p5ml.KNNImageClassifier(loopURls);
 let index = 0;
 let trainingTime = 5;
 let startPred = false;
-
-
-// TRAIN WITH VIDEOS THEN STOP TRAINING AND START PREDICTING
-function loopURls(){
-
-    if(!startPred){
-      let times = 0;
-      videoTeach.src = urls[index];
-
-      videoTeach.onloadeddata = function() {
-
-        let emoji = emojis[index]
-        let liEmoji = document.getElementById(emoji).children[1];
-        liEmoji.innerHTML =  " ↝ Training"
-
-        let trainThisVideo = setInterval(function(){
-          // TRAIN VIDEO
-          //console.log(index, times);
-          knn.addImage(videoTeach, index);
-          liEmoji.innerHTML =  " ↝ Trained √"
-          liEmoji.style.color = "#bdb4b4";
-
-          times++;
-          stopTraining()
-
-        }, 150);
-
-        function stopTraining(){
-
-          if(times === trainingTime){
-
-            console.log('stop the training');
-            clearInterval(trainThisVideo);
-
-            index++;
-
-            if(index < urls.length){
-              // LOOP FOR A NEW VIDEO
-
-              loopURls();
-
-            } else {
-              //START PREDICTING
-              console.log('start predicting');
-
-              loading.style.backgroundColor = "purple";
-              loading.style.color = "white";
-              loading.innerHTML = "READY √ ";
-
-              setTimeout(function(){
-
-              loading.style.display = "none";
-
-            },3000)
-
-              startPred = true;
-              window.startPred = startPred;
-
-              setInterval(function() {
-                knn.predict(video, function(data) {
-
-                let position = data.classIndex;
-                let emoji = emojis[data.classIndex];
-
-                logText.innerHTML = emojis[data.classIndex];
-                socket.emit('position', emoji);
-
-                console.log('Position', emoji );
-                })
-              }, 250);
-            }
-          }
-        }
-      };
-    }
-}
 
 
 // TRAIN NEW EMOJIS
@@ -167,9 +81,6 @@ function trainNewEmojis(element, index){
 
     console.log("A preesed", keyPressed, "times");
 
-   if(keyPressed < 2 ){
-     trainings++
-   }
 
    let position = index;
 
@@ -177,24 +88,99 @@ function trainNewEmojis(element, index){
 
    if(keyPressed === 12 ){
 
-    modelSign.style.display = "block";
-    modelSign.innerHTML = "Model Trained as: " + trainings;
-    liNotTrained.children[1].innerHTML =  " ↝ Trained √"
+    liNotTrained.children[1].innerHTML =  " ↝ Trained as " + liNotTrained.children[1].getAttribute("data-trained") + " √";
     liNotTrained.children[1].style.color = "#bdb4b4";
 
     setTimeout(function(){ modelSign.style.display = "none"; }, 1500);
 
     keyPressed = 0;
 
-    console.log("position trained as:", trainings );
+    console.log("position trained" );
     console.log(index);
-    socket.emit('position', position);
+    // socket.emit('position', position);
 
     }
 
   });
 
 }
+
+
+function loopURls(){
+
+  //START PREDICTING
+  console.log('start predicting');
+
+  loading.style.backgroundColor = "purple";
+  loading.style.color = "white";
+  loading.innerHTML = "LOADING ";
+
+  setTimeout(function(){
+
+  loading.style.display = "none";
+
+},3000)
+
+  startPred = true;
+  window.startPred = startPred;
+
+  setInterval(function() {
+    knn.predict(video, function(data) {
+
+    let position = data.classIndex;
+    let emoji = emojis[data.classIndex];
+
+
+    if (emoji == "🙂") {
+      console.log(emoji);
+      logText.innerHTML = emoji;
+    }
+
+    // console.log(data);
+    if (emoji == "☝") {
+      lU = 1;
+      logText.innerHTML = emoji;
+    } else {
+      lU = 0;
+    }
+
+    if (emoji == "✋") {
+      console.log(emoji);
+      lD = 1;
+      logText.innerHTML = emoji;
+    } else {
+      lD = 0;
+    }
+
+    if (emoji == "✌") {
+      rU = 1;
+      logText.innerHTML = emoji;
+    } else {
+      rU = 0;
+    }
+
+    if (emoji == "✊") {
+      rD = 1;
+      logText.innerHTML = emoji;
+    } else {
+      rD = 0;
+    }
+
+
+    if (emoji == "😛") {
+      ball.x = 0;
+      ball.y = 20;
+      paddleL.y = 300;
+      logText.innerHTML = emoji;
+    }
+
+
+
+
+    })
+  }, 250);
+}
+
 
 
 // CAMERA
@@ -221,48 +207,168 @@ function trainNewEmojis(element, index){
   }
 })
 
-// VIDEO AND TRAINING REFERENCE
-function addVideo(obj, index) {
+// // VIDEO AND TRAINING REFERENCE
+// function addVideo(obj, index) {
+//
+//   let videoRef = document.getElementById('videoRef');
+//
+//   videoShowRef.style.animation = "fadeIN linear 1s 1";
+//   videoShowRef.style.opacity = "1";
+//   videoShowRef.src = urls[index];
+//
+//   let liEmoji = document.getElementById(emojis[index]);
+//
+//   liEmoji.style.transform = "scale(1.025)";
+//   liEmoji.style.backgroundColor = "#f5e8cb";
+//   videoText.style.opacity = "0";
+//
+// }
+//
+// function removeVideo(obj, index) {
+//
+//   let videoRef = document.getElementById('videoRef');
+//
+//   videoShowRef.style.animation = "fadeOUT linear 1s 1"
+//   videoShowRef.style.opacity = "0";
+//
+//   let liEmoji = document.getElementById(emojis[index]);
+//
+//   liEmoji.style.transform = "scale(1)";
+//   liEmoji.style.backgroundColor = "#f7f1e3";
+//   videoText.style.opacity = "1";
+//
+// }
+//
+//
 
-  let videoRef = document.getElementById('videoRef');
 
-  videoShowRef.style.animation = "fadeIN linear 1s 1";
-  videoShowRef.style.opacity = "1";
-  videoShowRef.src = urls[index];
+// GAME start
 
-  let liEmoji = document.getElementById(emojis[index]);
 
-  liEmoji.style.transform = "scale(1.025)";
-  liEmoji.style.backgroundColor = "#f5e8cb";
-  videoText.style.opacity = "0";
+function setup() {
+  createCanvas(800, 600);
+  smooth();
+}
+
+function draw() {
+
+  gameStart === true;
+
+  background(ry,gy,by);
+  noStroke();
+
+  createLeftPaddle();
+  createRightPaddle();
+  createBall();
+  ballBounceTopAndBottom();
+  ballBounceRight();
+  ballBounceLeft();
+}
+
+
+  function createBall() {
+    //Create ball
+    if (changeColor == false) {
+      fill(black, black, black);
+    } else {
+      fill(245, 224, 2);
+    }
+      ellipse(ball.x, ball.y, ball.diam+5, ball.diam+10);
+
+      ball.x = ball.x + speedX;
+      ball.y = ball.y + speedY;
+
+  }
+
+
+
+  function createLeftPaddle() {
+    //Create the left paddle
+    if (changeColor == false) {
+      fill(black, black, black);
+    } else {
+      fill(245, 224, 2);
+    }
+    rect(paddleL.x, paddleL.y, paddleL.w, paddleL.h);
+    //Control the left paddle
+    if (lD === 1) {
+      if (paddleL.y + paddleL.h < height - 5) {
+        paddleL.y = paddleL.y + paddleSpeed;
+      }
+    }
+    if (lU === 1) {
+      if (paddleL.y > 5) {
+        paddleL.y = paddleL.y - paddleSpeed;
+      }
+    }
+  }
+
+  function createRightPaddle() {
+    //Create the right paddle
+    if (changeColor == false) {
+      fill(black, black, black);
+    } else {
+      fill(245, 224, 2);
+    }
+    rect(paddleR.x, paddleR.y, paddleR.w, paddleR.h);
+    //Control the right paddle
+
+    if (rD === 1) { //move paddle down
+      if (paddleR.y + paddleR.h < height - 5) {
+        paddleR.y = paddleR.y + paddleSpeed;
+      }
+    }
+    if (rU === 1) { //move paddle up
+      if (paddleR.y > 5) {
+        paddleR.y = paddleR.y - paddleSpeed;
+      }
+    }
+
+  }
+
+function ballBounceTopAndBottom() {
+
+  //If if the ball hits the top or bottom of the court it bounces
+  if (ball.y + 12.5 > height || ball.y < 12.5 && ball.x > 0 && ball.x < width && ball.y > 0 && ball.y < height) {
+    speedY = speedY * -1; //reverse the direction of the motion
+    ball.y = ball.y + speedY; //keeps things moving
+  }
 
 }
 
-function removeVideo(obj, index) {
+function ballBounceRight() {
+    //if the x of the edge ball is more than the x of the right paddle and
+    //the y of the ball is greater than the y of the rectangle and
+    //less than the y of the rectangle plus the height
+    if (ball.x + 12.5 > paddleR.x && ball.y + 12.5 > paddleR.y && ball.y + 12.5 < paddleR.y + paddleR.h && ball.x > 0 && ball.x < width && ball.y > 0 && ball.y < height) {
+      speedX = speedX * -1; //This reverses the direction, I think
+      ball.x = ball.x + speedX; //This keeps the ball moving
+    }
+    //if the edge of the ball is lower than rect y and
+    //the x of the ball is greater than the x of the rect and less than the width
+    else if (ball.y + 12.5 > paddleR.y && ball.y < paddleR.y + paddleR.y + paddleR.h && ball.x + 12.5 > paddleR.x && ball.x < paddleR.x + paddleR.x && ball.x > 0 && ball.x < width && ball.y > 0 && ball.y < height) {
+      speedY = speedY * -1; //reverse the direction of the motion
+      ball.y = ball.y + speedY; //keeps things moving
+    }
 
-  let videoRef = document.getElementById('videoRef');
+    //if the edge of the ball is higher than rect y plus height and
+    //the x of the ball is greater than the x of the rect and less than the width
+    else if (ball.y + 12.5 < paddleR.y + paddleR.h && ball.y > paddleR.y && ball.x > paddleR.x && ball.x < paddleR.x + paddleR.h && ball.x > 0 && ball.x < width && ball.y > 0 && ball.y < height) {
+      speedY = speedY * -1; //reverse the direction of the motion
+      ball.y = ball.y + speedY; //keeps things moving
+    }
+  }
 
-  videoShowRef.style.animation = "fadeOUT linear 1s 1"
-  videoShowRef.style.opacity = "0";
+function ballBounceLeft() {
+    //if the ball hits the left wall
+    /* if (ball.x < 0) {
+       speedX = speedX * -1; //This reverses the direction, I think
+       ball.x = ball.x + speedX; //This keeps the ball moving
+       print("pow");*/
 
-  let liEmoji = document.getElementById(emojis[index]);
-
-  liEmoji.style.transform = "scale(1)";
-  liEmoji.style.backgroundColor = "#f7f1e3";
-  videoText.style.opacity = "1";
-
-}
-
-function clientsConnected(data) {
-  let domHeading = document.getElementById('users')
-}
-
-function clientsDisconnected(data) {
-  // console.log(data.size);
-  let domHeading = document.getElementById('users')
-  domHeading.innerHTML = data +  " users connected";
-}
-
-function positionServer(data) {
-  // console.log("Position from Server:" + " " + data);
-}
+    //if the ball hits the front of the left paddle
+    if (ball.x - 12.5 < paddleL.x + paddleL.w && ball.y + 12.5 > paddleL.y && ball.y + 12.5 < paddleL.y + paddleL.h && ball.x > 0 && ball.x < width && ball.y > 0 && ball.y < height) {
+      speedX = speedX * -1; //This reverses the direction, I think
+      ball.x = ball.x + speedX; //This keeps the ball moving
+    }
+  }

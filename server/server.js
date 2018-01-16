@@ -1,6 +1,5 @@
 
 /*
-Simple Express / Mustache / Socket.io Server Boilerplate
 
 Alejandro Matamala
 @matamalaortiz
@@ -27,7 +26,7 @@ const express = require('express');
 const app = express();
 // const server = require('http').Server(app);
 const server = require('https').Server(credentials, app);
-const io = require('socket.io').listen(server);
+// const io = require('socket.io').listen(server);
 const path = require('path');
 const  mustacheExpress = require('mustache-express');
 
@@ -63,26 +62,25 @@ app.get('/pong', function(req, res) {
   res.render("pong.mustache")
 });
 
-io.sockets.on('connection',
-	// We are given a websocket object in our function
-	function (socket) {
-
-		console.log("We have a new client: " + socket.id);
-
-		// When this user emits, client side: socket.emit('otherevent',some data);
-		socket.on('position', function(data) {
-			console.log("Received: 'position' " + data);
-			io.sockets.emit('position_from_server', data);
-		});
-
-    socket.on('controller_button', function(data) {
-      console.log("From Controller: 'Button Pressed : ' " + data);
-      io.sockets.emit('controller_from_server', data);
-    });
-
-	}
-);
-
+// io.sockets.on('connection',
+// 	// We are given a websocket object in our function
+// 	function (socket) {
+//
+// 		console.log("We have a new client: " + socket.id);
+//
+// 		// When this user emits, client side: socket.emit('otherevent',some data);
+// 		socket.on('position', function(data) {
+// 			console.log("Received: 'position' " + data);
+// 			io.sockets.emit('position_from_server', data);
+// 		});
+//
+//     socket.on('controller_button', function(data) {
+//       console.log("From Controller: 'Button Pressed : ' " + data);
+//       io.sockets.emit('controller_from_server', data);
+//     });
+//
+// 	}
+// );
 
 
 // SERVER OPEN IN PORT 3000
