@@ -1,6 +1,7 @@
-# P5ML Pong Game
+# ML PONG
 
-A Machine Learning Pong Game to train and play in the browser.
+Machine Learning Pong it's an experimental version of the famous computer game Pong that aims to educate users on how machine learning tasks are trained through a fun gaming experience. The user is able to train in the browser, in realtime, a neural network and then play a game using a set of assigned emojis as reference.
+
 
 ![ML PONG](public/images/doc01.jpg)
 
