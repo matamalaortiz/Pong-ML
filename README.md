@@ -6,12 +6,11 @@ A Machine Learning Pong Game to train and play in the browser.
 
 ## How it works
 
-P5ML Pong Game uses the P5 deeplearn library https://github.com/cvalenzuela/p5-deeplearn-js to train and predict the controllers to play the game.
-
+P5ML Pong Game uses the P5 DeepLearn library https://github.com/cvalenzuela/p5-deeplearn-js to train the controllers and predict the output.
 
 ## Demo
 
-Demo version using 2 browsers and sending data using web sockets.
+Video Demo version runs in 2 windows browsers and is sending the data through web sockets. (The repo for this project combines the game and the controller in one single page)
 
 ### [ML PONG](https://www.youtube.com/watch?v=koZYwOAHmQM&feature=youtu.be)
 [![ML PONG](public/images/video.jpg)](https://www.youtube.com/watch?v=koZYwOAHmQM&feature=youtu.be)
@@ -19,7 +18,7 @@ Demo version using 2 browsers and sending data using web sockets.
 
 ## Usage
 
-Currently version of the game runs the game and the controller at the same page.
+Currently version of the game runs the game and the controller at the same page.*
 
 - Clone Repository.
 - Create `private` directory inside of `/server` and add your `cert.pem` and `key.pem` certificates.
