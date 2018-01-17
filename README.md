@@ -1,8 +1,8 @@
 # P5ML Pong Game
 
-A machine learning Pong Game to train and play in the browser.
+A Machine Learning Pong Game to train and play in the browser.
 
-![description](static/imgs/description2.png)
+![ML PONG](static/imgagess/doc01.png)
 
 ## How it works
 
@@ -11,8 +11,8 @@ P5ML Pong Game uses the P5 deeplearn library https://github.com/cvalenzuela/p5-d
 
 ## Demos
 
-### [video](https://youtu.be)
-[![video](https://youtu.be)
+### [ML PONG](https://www.youtube.com/watch?v=koZYwOAHmQM&feature=youtu.be)
+[![ML PONG](https://www.youtube.com/watch?v=koZYwOAHmQM&feature=youtu.be://youtu.be)
 
 
 ## Usage
