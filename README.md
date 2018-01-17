@@ -22,9 +22,8 @@ Demo version using 2 browsers and sending data using web sockets.
 Currently version of the game runs the game and the controller at the same page.
 
 - Clone Repository.
-- Create `private` directory inside of `/server`.
-- Add your `cert.pem` and `key.pem` certificates.
-- Replace your credentials in `server.js` file.
+- Create `private` directory inside of `/server` and add your `cert.pem` and `key.pem` certificates.
+- Replace your credentials in the`server.js` file.
 - Run `$ npm install`
 - Start `$ npm start`
 
