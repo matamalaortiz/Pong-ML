@@ -116,16 +116,16 @@ function loopURls(){
   loading.innerHTML = "LOADING ";
 
   setTimeout(function(){
-
-  loading.style.display = "none";
-
-},3000)
+    loading.style.display = "none";
+  },3000)
 
   startPred = true;
   window.startPred = startPred;
 
   setInterval(function() {
     knn.predict(video, function(data) {
+
+    console.log(data);
 
     let position = data.classIndex;
     let emoji = emojis[data.classIndex];
@@ -207,43 +207,6 @@ function loopURls(){
   }
 })
 
-// // VIDEO AND TRAINING REFERENCE
-// function addVideo(obj, index) {
-//
-//   let videoRef = document.getElementById('videoRef');
-//
-//   videoShowRef.style.animation = "fadeIN linear 1s 1";
-//   videoShowRef.style.opacity = "1";
-//   videoShowRef.src = urls[index];
-//
-//   let liEmoji = document.getElementById(emojis[index]);
-//
-//   liEmoji.style.transform = "scale(1.025)";
-//   liEmoji.style.backgroundColor = "#f5e8cb";
-//   videoText.style.opacity = "0";
-//
-// }
-//
-// function removeVideo(obj, index) {
-//
-//   let videoRef = document.getElementById('videoRef');
-//
-//   videoShowRef.style.animation = "fadeOUT linear 1s 1"
-//   videoShowRef.style.opacity = "0";
-//
-//   let liEmoji = document.getElementById(emojis[index]);
-//
-//   liEmoji.style.transform = "scale(1)";
-//   liEmoji.style.backgroundColor = "#f7f1e3";
-//   videoText.style.opacity = "1";
-//
-// }
-//
-//
-
-
-// GAME start
-
 
 function setup() {
   createCanvas(800, 600);
@@ -279,7 +242,6 @@ function draw() {
       ball.y = ball.y + speedY;
 
   }
-
 
 
   function createLeftPaddle() {
