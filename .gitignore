@@ -3,3 +3,4 @@ server/private
 */.DS_store
 */*/.DS_store
 node_modules
+public/fonts

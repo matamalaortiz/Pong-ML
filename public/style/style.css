@@ -2,6 +2,10 @@
     font-family: apercu;
     src: url(./fonts/Apercu.ttf);
 }
+@font-face {
+    font-family: Lars;
+    src: url(./fonts/Lars-Regular.otf);
+}
 
 body {
   background-color: #f6dd95;
